@@ -18,7 +18,14 @@ namespace ThingRandomiser
                 things.Add(Console.ReadLine());
             }
 
-            Console.WriteLine($"I choose: \"{things[rand.Next(things.Count)]}\" as my random pick.");
+            int counter = 0;
+            while (things.Count > 0)
+            {
+                counter++;
+                int chosenNum = rand.Next(things.Count);
+                Console.WriteLine($"Pick number {counter.ToString()} is: \"{things[chosenNum]}\"");
+                things.RemoveAt(chosenNum);
+            }
         }
     }
 }
